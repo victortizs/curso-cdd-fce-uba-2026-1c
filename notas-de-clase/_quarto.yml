@@ -15,6 +15,7 @@ website:
         - contenido/clase-00-20260313.ipynb
         - contenido/clase-01-20260317.ipynb
         - contenido/clase-02-20260320.Rmd
+        - contenido/clase-03-20260327.Rmd
   page-footer:
     left: "Ciencia de Datos para Econ. y Neg. - Sidicaro Nicolás Leonardo"
     center:
