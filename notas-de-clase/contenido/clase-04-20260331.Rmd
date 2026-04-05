@@ -1,0 +1,22 @@
+---
+title: "04: Transformación y unión"
+subtitle: "Presencial"
+author: "Victor Adrian"
+format: html
+toc: true
+output-file: "clase-04-20260331.html"
+code-overflow: wrap
+date: "March 31, 2026"
+date-format: "iso"
+embed-resources: true
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, eval = TRUE, include = TRUE)
+```
+
+## Intro
+
+En proceso...
+
+
