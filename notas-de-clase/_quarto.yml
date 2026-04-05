@@ -21,7 +21,7 @@ website:
     left: "Ciencia de Datos para Econ. y Neg. - Sidicaro Nicolás Leonardo"
     center:
       <a href="https://github.com/nsidicarocep/curso_cdd_fce_uba_1c2026" target="_blank" rel="noopener noreferrer">Repo oficial</a> |
-      <a href="https://github.com/victortizs/curso_cdd_fce_uba_2026_1c" target="_blank" rel="noopener noreferrer">Fork de este autor</a>
+      <a href="https://github.com/victortizs/curso-cdd-fce-uba-2026-1c" target="_blank" rel="noopener noreferrer">Fork de este autor</a>
     right: "© 2026"
 
 format:
