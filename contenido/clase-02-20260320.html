@@ -3909,6 +3909,10 @@ vertical-align: -.125em;
     <a class="dropdown-item" href="../contenido/clase-03-20260327.html">
  <span class="dropdown-text">03: Tidyverse</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../contenido/clase-04-20260331.html">
+ <span class="dropdown-text">04: Transformación y unión</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -4218,11 +4222,11 @@ Elementos en segunda, tercera y cuarta posición: 50, sesenta, 4.3</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Data frame:
   id_producto precio_producto
-1           1           73.41
-2           2           12.41
-3           3           97.64
-4           4           40.61
-5           5           21.40</code></pre>
+1           1           83.50
+2           2           16.68
+3           3           94.06
+4           4           51.18
+5           5           97.40</code></pre>
 </div>
 </div>
 </section>
@@ -4242,7 +4246,7 @@ Elementos en segunda, tercera y cuarta posición: 50, sesenta, 4.3</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Columna &#39;precio_producto&#39; como vector:
-[1] 73.41 12.41 97.64 40.61 21.40
+[1] 83.50 16.68 94.06 51.18 97.40
 Clase: numeric
 
 Columna &#39;id_producto&#39; como data frame:
@@ -4269,7 +4273,7 @@ Clase: data.frame</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Filas dos y cuatro como vector:
     id_producto1     id_producto2 precio_producto1 precio_producto2 
-            2.00             4.00            12.41            40.61 
+            2.00             4.00            16.68            51.18 
 
 Verifico coerción a tipo más general:
     id_producto1     id_producto2 precio_producto1 precio_producto2 
@@ -4287,14 +4291,14 @@ Verifico coerción a tipo más general:
 <div class="cell-output cell-output-stdout">
 <pre><code>Filas uno y dos como data frame:
   id_producto precio_producto
-1           1           73.41
-2           2           12.41
+1           1           83.50
+2           2           16.68
 
 Filas uno, tres y cuatro como data frame:
   id_producto precio_producto
-1           1           73.41
-3           3           97.64
-4           4           40.61</code></pre>
+1           1           83.50
+3           3           94.06
+4           4           51.18</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -4311,7 +4315,7 @@ $id_producto
 [1] 2 4 5
 
 $precio_producto
-[1] 12.41 40.61 21.40
+[1] 16.68 51.18 97.40
 
 
 Verifico clase:
@@ -4334,7 +4338,7 @@ Verifico clase:
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Fila cuatro, columna &#39;precio_producto&#39; por nombre:
-[1] 40.61
+[1] 51.18
 [1] &quot;numeric&quot;
 
 Filas cuatro y cinco, columna &#39;id_producto&#39; por posición:
@@ -4373,9 +4377,9 @@ Filas cuatro y cinco, columna &#39;id_producto&#39; por posición:
 <div class="cell-output cell-output-stdout">
 <pre><code>Matriz &#39;m1&#39; populada por columna:
      [,1] [,2] [,3]
-[1,]   18   18   16
-[2,]   16   17   17
-[3,]    5   10   18
+[1,]   10    6   20
+[2,]   17   15   20
+[3,]    5   18   14
 
 Matriz &#39;m2&#39; populada por fila:
      [,1] [,2] [,3]
@@ -4384,12 +4388,12 @@ Matriz &#39;m2&#39; populada por fila:
 [3,]    7    8    9
 
 Vector aleatorio:
-[1] 0.08 0.74 0.14 0.72 0.59 0.28
+[1] 0.55 0.56 0.86 0.24 0.39 0.44
 
 Matriz &#39;m3&#39; generada a partir de vector aleatorio, populada por columna:
      [,1] [,2] [,3]
-[1,] 0.08 0.14 0.59
-[2,] 0.74 0.72 0.28</code></pre>
+[1,] 0.55 0.86 0.39
+[2,] 0.56 0.24 0.44</code></pre>
 </div>
 </div>
 </section>
@@ -4444,12 +4448,12 @@ Elementos en F1/F2 y C1/C3 de &#39;m2&#39;, como submatriz:
 <div class="cell-output cell-output-stdout">
 <pre><code>Elementos en columna &#39;c&#39; de &#39;m3&#39; como vector:
   r1   r2 
-0.59 0.28 
+0.39 0.44 
 
 Elementos en columna &#39;c&#39; de &#39;m3&#39; como submatriz:
       c
-r1 0.59
-r2 0.28</code></pre>
+r1 0.39
+r2 0.44</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -4466,9 +4470,9 @@ r2 0.28</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Convierto &#39;m1&#39; a data frame:
   V1 V2 V3
-1 18 18 16
-2 16 17 17
-3  5 10 18
+1 10  6 20
+2 17 15 20
+3  5 18 14
 Clase: data.frame</code></pre>
 </div>
 </div>
@@ -4592,7 +4596,7 @@ Clase: data.frame</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Promedio de precios de columna &#39;precio_producto&#39;:&quot;</span>, <span class="fu">mean</span>(df<span class="sc">$</span>precio_producto))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Promedio de precios de columna &#39;precio_producto&#39;: 49.094</code></pre>
+<pre><code>Promedio de precios de columna &#39;precio_producto&#39;: 68.564</code></pre>
 </div>
 </div>
 </section>
@@ -4790,23 +4794,22 @@ Los países con más de 10 millones de habitantes son: Argentina, Brasil, Venezu
 
 1. Mostrar solo productos con precio mayor a 1000:
   nombre categoria stock precio
-1      a     local    16   1166
-2      b importado    23   1240
-3      c     local    30   1097
-4      d importado     7   1081
-5      e     local     8   1059
+1      a     local    18   1244
+3      c     local    27   1196
+4      d importado    22   1144
+5      e     local     6   1110
 
 2. Calcular el valor total de stock y agregarlo como columna:
   nombre categoria stock precio valor_stock
-1      a     local    16   1166       18656
-2      b importado    23   1240       28520
-3      c     local    30   1097       32910
-4      d importado     7   1081        7567
-5      e     local     8   1059        8472
+1      a     local    18   1244       22392
+2      b importado    11    928       10208
+3      c     local    27   1196       32292
+4      d importado    22   1144       25168
+5      e     local     6   1110        6660
 
-3. El valor total del inventario es: 96125
+3. El valor total del inventario es: 96720
 
-4. El precio promedio de la categoría &#39;local&#39; es 1111.81 y el de &#39;importado&#39; es 1202.9</code></pre>
+4. El precio promedio de la categoría &#39;local&#39; es 1202.82 y el de &#39;importado&#39; es 1072</code></pre>
 </div>
 </div>
 
