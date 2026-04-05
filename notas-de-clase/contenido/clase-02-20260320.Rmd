@@ -390,7 +390,7 @@ supermercado = data.frame(nombre, categoria, stock, precio)
 
 # 1
 cat("1. Mostrar solo productos con precio mayor a 1000:\n")
-supermercado[supermercado$precio > 1000, ] # O también subset(supermercado, precio > 1000)
+supermercado[supermercado$precio > 1000, ] # También subset(supermercado, precio > 1000)
 
 # 2
 cat("\n2. Calcular el valor total de stock y agregarlo como columna:\n")
