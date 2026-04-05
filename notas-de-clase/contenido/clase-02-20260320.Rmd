@@ -14,8 +14,10 @@ embed-resources: true
 ```{r setup, include=TRUE}
 # Configurando opciones globales para doc
 # Para más info ver https://github.com/rstudio/cheatsheets/blob/main/rmarkdown-2.0.pdf
-knitr::opts_chunk$set(echo = TRUE, error = TRUE, eval = TRUE, include=TRUE)
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, eval = TRUE, include = TRUE)
 ```
+
+## Intro
 
 Esta clase trata las capacidades de R frente a otras herramientas y guía la configuración de RStudio, Colab y GitHub. Tras cubrir los fundamentos del lenguaje —desde tipos de datos hasta funciones básicas—, la teoría se consolida mediante la resolución de ejercicios prácticos.
 

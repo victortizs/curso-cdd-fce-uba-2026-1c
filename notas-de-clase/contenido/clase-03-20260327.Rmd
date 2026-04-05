@@ -1,0 +1,154 @@
+---
+title: "03: Tidyverse"
+subtitle: "Virtual"
+author: "Victor Adrian"
+format: html
+toc: true
+output-file: "clase-03-20260327.html"
+code-overflow: wrap
+date: "March 27, 2026"
+date-format: "iso"
+embed-resources: true
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, eval = TRUE, include = TRUE)
+```
+
+## Intro
+
+La clase es una introducción a los paquetes que integran *tidyverse*, con foco en la lectura de archivos con `readr` y `readxl`, y algunos verbos/funciones de `dplyr`. Para evitar redundancia, me limitaré a aportar a la definición de *tidyverse* ---además de qué ofrece---, más una breve mención al operador *pipe*.
+
+La información y ejemplos prácticos con funciones de *tidyverse* se encuentran en las <a href="https://github.com/nsidicarocep/curso_cdd_fce_uba_1c2026/tree/main/clases/clase03" target="_blank" rel="noopener noreferrer">diapositivas de la clase 03</a>.
+
+Como siempre, al final hay ejercicios de la práctica resueltos.
+
+## ¿Qué es el tidyverse?
+
+Se trata de un paquete/conjunto de paquetes que trabajan en armonía al compartir representaciones de datos comunes (estructuras, síntaxis y filosofía). Su propósito es el de simplificar la instalación y carga de estos paquetes en un solo paso.
+
+Entre los paquetes se encuentran aquellos que forman parte del *core*, los más usados cotidianamente, y otros con usos específicos. <a href="https://tidyverse.org/packages/" target="_blank" rel= "noopener noreferrer">Ver más</a>.
+
+### Core tidyverse
+
+| Paquete | Función |
+|:---|:---|
+| `dplyr` | manipular datos |
+| `tidyr` | ordenar datos |
+| `tibble` | mejorar lo ofrecido por un *data frame* |
+| `readr` | leer datos "rectángulares" |
+| `ggplot2` | visualizar datos |
+| `purrr` | escalar funciones |
+| `stringr` | manipular texto |
+| `lubridate` | manipular fechas y hora |
+| `forcats` | manipular factores |
+
+### Reglas "tidy"
+
+1. Cada variable ocupa una columna.
+2. Cada observación ocupa una fila.
+3. Cada valor ocupa una variable.
+
+Es necesario que los datos sigan este formato para poder utilizar los verbos del paquete `dplyr`; además de ser el formato recomendado para manipular *datasets*, independientemente del lenguaje o herramienta.
+
+## El operador pipe
+
+Un operador *pipe* (tubo) es un pasador de inputs. Toma como *input* de una función el *output* de una anterior, evitando el anidado *(nesting)* de funciones y la creación y almacenamiento en memoria de variables/objetos intermedios para lograr iguales resultados.
+
+La versión preferida actualmente es la nativa de R, `|>`, que reemplaza al `%>%` de los paquetes `tidyverse` y `magrittr`. Su principal ventaja radica en facilitar la escritura y lectura de código, y no requerir la instalación de librerías (paquetes) al ser nativo.
+
+Cabe aclarar que no es una característica exclusiva de R, la mayoría de lenguajes tienen un operador *pipe*.
+
+## Ejercicios
+
+### Consignas
+
+- Todos los ejercicios utilizan el dataset `Datos_por_departamento_y_actividad.csv` ubicado en la carpeta `datos/` del repositorio.
+- Resolver cada ejercicio en un único bloque encadenado con el pipe `|>`.
+- Guardar cada resultado como un CSV dentro de `output/clase03/` usando `write_csv()`.
+- Se pueden usar solamente las funciones vistas en clase: `read_csv()`, `select()`, `filter()`, `mutate()`, `arrange()`, `summarise()`, `group_by()` y el pipe `|>`.
+
+### Vistazo al dataset
+
+```{r libs, results="hold", message=FALSE}
+# No tengo instalado tidyverse para evitar cargar paquetes que no uso y ocupan espacio, por eso la carga individual
+library(tibble)
+library(dplyr)
+library(readr)
+```
+
+```{r df, results="hold"}
+df = read_csv(r"(..\..\datos\Datos_por_departamento_y_actividad.csv)", show_col_types = FALSE)
+glimpse(df)
+cat("\nValores únicos por columna:\n")
+for (col in names(df)) {
+    cat(col, " -> ", n_distinct(df[[col]]), "\n", sep = "")
+}
+```
+
+### Ej. 1
+
+```{r ej_1, results="hold"}
+filtro_prov = "Buenos Aires"
+filtro_anio = 2022
+
+output_ej_1 = df |> # definirlo como objeto es una decisión propia para poder manejarlo mejor
+    filter(provincia == filtro_prov, anio == filtro_anio) |>
+    group_by(departamento) |>
+    summarize(
+        empl_industrial = sum(Empleo[letra == "C"]),
+        empl_total = sum(Empleo),
+        share_empl_industrial = round(empl_industrial / empl_total, 2)
+    ) |>
+    filter(empl_industrial > 500) |> # primero filtro, para ordenar solo lo que voy a usar
+    arrange(desc(share_empl_industrial))
+
+output_ej_1
+write_csv(output_ej_1, r"(..\..\output\clase03\ejercicio_1.csv)")
+# si no se define un objeto para el output, se puede pasar `write_csv()` con el operador `|>`
+```
+
+### Ej. 2
+
+```{r ej_2, results="hold"}
+options(width = 300) # para no truncar el ancho de este output
+
+output_ej_2 = df |>
+    filter(anio == filtro_anio) |>
+    group_by(provincia) |>
+    summarise(
+        empl_total = sum(Empleo),
+        establ_total = sum(Establecimientos),
+        empl_por_establ = round(empl_total / establ_total, 2)
+    ) |>
+    mutate(
+        categoria = ifelse(empl_por_establ > median(empl_por_establ),
+        paste("encima de Mdn Nac.", round(median(empl_por_establ), 2)),
+        paste("debajo de Mdn Nac.", round(median(empl_por_establ), 2))
+        )
+    ) |>
+    arrange(desc(empl_por_establ))
+
+print.data.frame(output_ej_2)
+write_csv(output_ej_2, r"(..\..\output\clase03\ejercicio_2.csv)")
+```
+
+### Ej. 3
+
+```{r ej_3, results="hold"}
+filtro_anio_2 = 2021
+
+output_ej_3 = df |>
+    filter(anio == filtro_anio_2) |>
+    group_by(letra) |>
+    summarise(
+        emp_expo_total = sum(empresas_exportadoras),
+        establ_total = sum(Establecimientos),
+        share_emp_expo = round(emp_expo_total / establ_total, 2) # no me gusta multiplicar por cien los porcentajes
+    ) |>
+    filter(establ_total > 1000) |>
+    arrange(desc(share_emp_expo))
+
+output_ej_3
+write_csv(output_ej_3, r"(..\..\output\clase03\ejercicio_3.csv)")
+```
