@@ -345,7 +345,8 @@ cat("\nEl pbi per cápita de Uruguay son: USD", pbi_pc)
 # Ejercicio 1.3
 # cat("Ejercicio 1.3:")
 mi_variable = 10
-cat("\n\nLlamando a 'Mi_Variable':", Mi_Variable) # no reconoce la variable al ser case-sensitive
+cat("\n\nLlamando a 'Mi_Variable':", Mi_Variable)
+# no reconoce la variable al ser case-sensitive
 ```
 
 ```{r ej_2, results="hold"}
