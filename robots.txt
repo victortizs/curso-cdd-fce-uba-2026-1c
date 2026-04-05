@@ -1,1 +1,1 @@
-Sitemap: https://victortizs.github.io/curso_cdd_fce_uba_2026_1c/sitemap.xml
+Sitemap: https://victortizs.github.io/curso-cdd-fce-uba-2026-1c/sitemap.xml
