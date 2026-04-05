@@ -59,7 +59,7 @@ La versión preferida actualmente es la nativa de R, `|>`, que reemplaza al `%>%
 
 Cabe aclarar que no es una característica exclusiva de R, la mayoría de lenguajes tienen un operador *pipe*.
 
-## Ejercicios
+## Práctica
 
 ### Consignas
 
