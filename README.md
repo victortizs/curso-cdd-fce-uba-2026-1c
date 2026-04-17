@@ -25,7 +25,7 @@ Las clases se organizan en dos instancias semanales:
 | Recurso | Link |
 |---|---|
 | Cronograma del curso | [Link al cronograma](https://docs.google.com/spreadsheets/d/1iKuWU7Yc_EEUsqabAkBizfgksrgC1FhG1uCD0RJZB-Q/edit) |
-| Consignas del Trabajo Práctico | [Link al TP](URL_TP) |
+| Consignas del Trabajo Práctico | [Link al TP]([URL_TP](https://github.com/nsidicarocep/curso_cdd_fce_uba_1c2026/tree/main/trabajo_practico)) |
 | Bibliografía completa | [Link a bibliografía](https://docs.google.com/spreadsheets/d/1iKuWU7Yc_EEUsqabAkBizfgksrgC1FhG1uCD0RJZB-Q/edit?gid=283594947#gid=283594947) |
 | Clase virtual de los viernes | [Link a la clase](https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDA1Yjc2ZTMtNTk2NC00MDI0LWFiMWUtNTMyZWZhYTUxMjcy%40thread.v2/0?context=%7b%22Tid%22%3a%224c818f79-ab84-4552-9b7c-2fe715b0d0d5%22%2c%22Oid%22%3a%2277f0ea96-2e96-4a71-85cd-f693c7e6c2cd%22%7d) |
 | Clases grabadas viejas | [Link a las clases](https://docs.google.com/spreadsheets/d/1qJqhNKqZBd8fF-mceK9HD0qxr4E0L953vhowUnWI-IM/edit?gid=1693566194#gid=1693566194) |
@@ -75,16 +75,16 @@ Cada clase tiene su propia carpeta dentro de `/clases/` con los siguientes archi
 
 ## 📅 Fechas importantes
 
-| Fecha | Evento |
-|---|---|
-| 13/03 | Inicio de clases — Presentación del curso |
-| 17/04 | **Instancia 1** — Validación de base de datos e hipótesis |
-| 26/05 | **Instancia 2** — Validación de métodos estadísticos |
-| 12/06 | **Instancia 3** — Validación de visualizaciones |
-| 23/06 | **Entrega final del TP** |
-| 26/06 | **Segunda opción Entrega final del TP** |
-| 30/06 y 03/07 | **Recuperatorios y TP opcional de Web Scraping** |
-| 24/03, 03/04, 01/05 | Feriados |
+| Fecha | Evento | Link |
+|---|---|---|
+| 13/03 | Inicio de clases — Presentación del curso | |
+| 23/04 | **Instancia 1** — Validación de base de datos e hipótesis | [Formulario 1](https://docs.google.com/forms/d/1rk-iEklDWILKR5eAS9CmdZiuW_alilUKEj8TaMesv0g/edit)| 
+| 26/05 | **Instancia 2** — Validación de métodos estadísticos | |
+| 12/06 | **Instancia 3** — Validación de visualizaciones | |
+| 23/06 | **Entrega final del TP** | |
+| 26/06 | **Segunda opción Entrega final del TP** | |
+| 30/06 y 03/07 | **Recuperatorios y TP opcional de Web Scraping** | |
+| 24/03, 03/04, 01/05 | Feriados | |
 
 Las tres instancias intermedias son de carácter formativo: permiten recibir devolución y corregir el rumbo antes de la entrega final.
 Son obligatorias las entregas y forman parte de la nota final con la siguiente ponderación: 10%, 20% y 10%. Tendrán las tres una nota del 1 al 10.
